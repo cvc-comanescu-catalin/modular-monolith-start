@@ -28,3 +28,5 @@ dotnet new webapi -n RiverBooks.Web
 dotnet sln RiverBooks.sln add .\RiverBooks.Web\RiverBooks.Web.csproj
 dotnet new classlib -n RiverBooks.Books -o RiverBooks.Books
 dotnet sln RiverBooks.sln add .\RiverBooks.Books\RiverBooks.Books.csproj
+
+github.com/ardalis/EditorConfig
