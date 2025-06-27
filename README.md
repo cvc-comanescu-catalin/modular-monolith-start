@@ -13,13 +13,13 @@ git remote -v
 
 # SSH for remote authentication
 
-git config core.sshCommand 'ssh -o IdentitiesOnly=yes -i ~/.ssh/id_cvc_ed25519'
+git config core.sshCommand "ssh -o IdentitiesOnly=yes -i ~/.ssh/id_cvc_ed25519"
 
 # SSH for commit signing
 
-git config --global user.signingKey '~/.ssh/git_ed25519.pub'
-git config --global gpg.format ssh
-git config --global commit.gpgsign true
+git config user.signingKey "C:/Users/catalin/.ssh/id_cvc_ed25519.pub"
+git config gpg.format ssh
+git config commit.gpgsign true
 
 mkdir src
 cd src
