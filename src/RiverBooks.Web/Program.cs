@@ -1,5 +1,6 @@
-using FastEndpoints;
+﻿using FastEndpoints;
 using RiverBooks.Books;
+using RiverBooks.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddFastEndpoints();
 
 // Add Module Services
-builder.Services.AddBookServices();
+builder.Services.AddBookServices(builder.Configuration);
+builder.Services.AddUserModuleServices(builder.Configuration);
 
 var app = builder.Build();
 
@@ -33,3 +35,4 @@ app.UseFastEndpoints();
 
 app.Run();
 
+public partial class Program { } // needed for tests

@@ -30,3 +30,11 @@ dotnet new classlib -n RiverBooks.Books -o RiverBooks.Books
 dotnet sln RiverBooks.sln add .\RiverBooks.Books\RiverBooks.Books.csproj
 
 github.com/ardalis/EditorConfig
+
+dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+
+dotnet ef migrations add Initial -c BookDbContext -p ..\RiverBooks.Books\RiverBooks.Books.csproj -s .\RiverBooks.Web.csproj -o Data/Migrations
+
+dotnet ef database update
+dotnet ef database update -- --environment Testing
