@@ -1,37 +1,49 @@
-﻿using FastEndpoints;
+﻿using System.Reflection;
+using FastEndpoints;
+using FastEndpoints.Security;
+using FastEndpoints.Swagger;
 using RiverBooks.Books;
 using RiverBooks.Users;
+using Serilog;
+
+var logger = Log.Logger = new LoggerConfiguration()
+  .Enrich.FromLogContext()
+  .WriteTo.Console()
+  .CreateLogger();
+
+logger.Information("Starting web host");
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.UseSerilog((_, config) =>
+  config.ReadFrom.Configuration(builder.Configuration));
+
 //builder.Services.AddOpenApi();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddFastEndpoints();
+//builder.Services.AddEndpointsApiExplorer();
+
+var signingKey = builder.Configuration["Auth:JwtSecret"]!;
+builder.Services.AddFastEndpoints()
+  .AddAuthenticationJwtBearer(s => s.SigningKey = signingKey)
+  .AddAuthorization()
+  .SwaggerDocument();
 
 // Add Module Services
-builder.Services.AddBookServices(builder.Configuration);
-builder.Services.AddUserModuleServices(builder.Configuration);
+List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
+builder.Services.AddBookServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddUserModuleServices(builder.Configuration, logger, mediatRAssemblies);
+
+// Set up MediatR
+builder.Services.AddMediatR(cfg =>
+  cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    //app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    //app.UseSwaggerUI(c =>
-    //{
-    //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RiverBooks API V1");
-    //    c.RoutePrefix = string.Empty; // Set Swagger UI at the app's root
-    //});
-}
+app.UseAuthentication()
+  .UseAuthorization();
 
-app.UseHttpsRedirection();
-
-app.UseFastEndpoints();
+app.UseFastEndpoints()
+  .UseSwaggerGen();
 
 app.Run();
 
