@@ -67,7 +67,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NTEyNzY2NTMsIkVtYWlsQWRkcmVzcyI6InN0ZXZlQHRlc3QuY29tIiwiZXhwIjoxNzUxMjgwMjUzLCJuYmYiOjE3NTEyNzY2NTN9.F4m3z_9PJUXHLEP2I9oHlGqJv0jA8i1XLILacZFBU5A
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NTE1NzY4MDEsIkVtYWlsQWRkcmVzcyI6InN0ZXZlQHRlc3QuY29tIiwiZXhwIjoxNzUxNTgwNDAxLCJuYmYiOjE3NTE1NzY4MDF9.Bb2BuAkl5liGep6qoVNIm5Muo-LfNkReA1c-ue85pBc
 
 # Add item to cart
 POST {{RiverBooks.Web_HostAddress}}/cart
@@ -86,5 +86,62 @@ Content-Type: application/json
 GET {{RiverBooks.Web_HostAddress}}/cart
 Accept: application/json
 Authorization: Bearer {{token}}
+
+###
+
+# Checkout Cart
+
+POST {{RiverBooks.Web_HostAddress}}/cart/checkout
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "shippingAddressId": "785464ec-fcab-4f69-8c58-15ebcb608459",
+  "billingAddressId": "785464ec-fcab-4f69-8c58-15ebcb608459"
+}
+
+###
+
+# List orders
+GET {{RiverBooks.Web_HostAddress}}/orders
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+# List Addresses
+
+GET {{RiverBooks.Web_HostAddress}}/users/addresses
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+# Add Address to User
+POST {{RiverBooks.Web_HostAddress}}/users/addresses
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "street1": "122 Main St.",
+  "street2": "Number 722",
+  "city":"Anytown",
+  "state":"OH",
+  "postalCode":"12345-6789",
+  "country":"USA"
+}
+
+###
+
+# FLUSH CACHE
+
+POST {{RiverBooks.Web_HostAddress}}/flushcache
+Accept: application/json
+Content-Type: application/json
+
+{
+}
 
 ###

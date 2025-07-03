@@ -6,9 +6,9 @@ using Serilog;
 
 namespace RiverBooks.Books;
 
-public static class BookServiceExtensions
+public static class BookModuleServiceExtensions
 {
-  public static IServiceCollection AddBookServices(
+  public static IServiceCollection AddBookModuleServices(
     this IServiceCollection services,
     ConfigurationManager config,
     ILogger logger,
@@ -21,7 +21,7 @@ public static class BookServiceExtensions
     services.AddScoped<IBookService, BookService>();
 
     // if using MediatR in this module, add any assemblies that contain handlers to the list
-    mediatRAssemblies.Add(typeof(BookServiceExtensions).Assembly);
+    mediatRAssemblies.Add(typeof(BookModuleServiceExtensions).Assembly);
 
     logger.Information("{Module} module services added", "Books");
 

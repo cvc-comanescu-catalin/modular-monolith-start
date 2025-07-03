@@ -2,7 +2,7 @@
 using MediatR;
 using RiverBooks.Books.Contracts;
 
-namespace RiverBooks.Users.UseCases;
+namespace RiverBooks.Users.UseCases.Cart.AddItem;
 
 public class AddItemToCartHandler : IRequestHandler<AddItemToCartCommand, Result>
 {
@@ -33,7 +33,7 @@ public class AddItemToCartHandler : IRequestHandler<AddItemToCartCommand, Result
 
     var bookDetails = result.Value;
 
-    string description = $"{bookDetails.Title} by {bookDetails.Author}";
+    var description = $"{bookDetails.Title} by {bookDetails.Author}";
 
     var newCartItem = new CartItem(request.BookId,
       description,

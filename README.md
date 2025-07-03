@@ -42,3 +42,11 @@ dotnet ef database update -- --environment Testing
 dotnet ef migrations add InitialUsers -c UsersDbContext -p ..\RiverBooks.Users\RiverBooks.Users.csproj -s .\RiverBooks.Web.csproj -o Data/Migrations
 dotnet ef migrations add CartItems -c UsersDbContext -p ..\RiverBooks.Users\RiverBooks.Users.csproj -s .\RiverBooks.Web.csproj -o Data/Migrations
 dotnet ef database update -c UsersDbContext
+
+dotnet ef migrations add InitialOrderProcessing -c OrderProcessingDbContext -p ..\RiverBooks.OrderProcessing\RiverBooks.OrderProcessing.csproj -s .\RiverBooks.Web.csproj -o Infrastructure/Data/Migrations
+dotnet ef database update -c OrderProcessingDbContext
+
+dotnet ef migrations add UserAddresses -c UsersDbContext -p ..\RiverBooks.Users\RiverBooks.Users.csproj -s .\RiverBooks.Web.csproj -o Data/Migrations
+dotnet ef database update -c UsersDbContext
+
+docker run --name my-redis -p 6379:6379 -d redis
