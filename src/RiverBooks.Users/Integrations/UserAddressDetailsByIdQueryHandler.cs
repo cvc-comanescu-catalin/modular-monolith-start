@@ -36,5 +36,4 @@ internal class UserAddressDetailsByIdQueryHandler :
 
     return details;
   }
-
 }

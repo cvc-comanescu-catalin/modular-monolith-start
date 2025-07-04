@@ -50,3 +50,5 @@ dotnet ef migrations add UserAddresses -c UsersDbContext -p ..\RiverBooks.Users\
 dotnet ef database update -c UsersDbContext
 
 docker run --name my-redis -p 6379:6379 -d redis
+docker run --name=papercut -p 25:25 -p 37408:37408 jijiechen/papercut:latest -d
+docker run --name mongodb -d -p 27017:27017 mongo
