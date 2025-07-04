@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.OrderProcessing.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.Users.Contracts", "RiverBooks.Users.Contracts\RiverBooks.Users.Contracts.csproj", "{C0ABF8C4-1C19-4E12-9AF4-D92DD101E83A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.SharedKernel", "RiverBooks.SharedKernel\RiverBooks.SharedKernel.csproj", "{8937E821-405E-4E9E-942F-1B9BDF1B3F50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +139,18 @@ Global
 		{C0ABF8C4-1C19-4E12-9AF4-D92DD101E83A}.Release|x64.Build.0 = Release|Any CPU
 		{C0ABF8C4-1C19-4E12-9AF4-D92DD101E83A}.Release|x86.ActiveCfg = Release|Any CPU
 		{C0ABF8C4-1C19-4E12-9AF4-D92DD101E83A}.Release|x86.Build.0 = Release|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Debug|x64.Build.0 = Debug|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Debug|x86.Build.0 = Debug|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Release|x64.ActiveCfg = Release|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Release|x64.Build.0 = Release|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Release|x86.ActiveCfg = Release|Any CPU
+		{8937E821-405E-4E9E-942F-1B9BDF1B3F50}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -67,7 +67,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NTE1NzY4MDEsIkVtYWlsQWRkcmVzcyI6InN0ZXZlQHRlc3QuY29tIiwiZXhwIjoxNzUxNTgwNDAxLCJuYmYiOjE3NTE1NzY4MDF9.Bb2BuAkl5liGep6qoVNIm5Muo-LfNkReA1c-ue85pBc
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NTE1ODMxMjIsIkVtYWlsQWRkcmVzcyI6InN0ZXZlQHRlc3QuY29tIiwiZXhwIjoxNzUxNTg2NzIyLCJuYmYiOjE3NTE1ODMxMjJ9.mVb5tLwTlPBFlnH0Cf75OrlvoDwQjYUUAk6MfAGQ_qI
 
 # Add item to cart
 POST {{RiverBooks.Web_HostAddress}}/cart
@@ -77,7 +77,7 @@ Content-Type: application/json
 
 {
   "bookId":"a89f6cd7-4693-457b-9009-02205dbbfe45",
-  "quantity":1
+  "quantity":0
 }
 
 ###
